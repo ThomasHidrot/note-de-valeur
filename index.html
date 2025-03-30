@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-image {
+            position: relative;
+            width: 45vw;
+            height: 80vh;
+            background: url('NoteDeValeur.jpg') no-repeat center center;
+            background-size: cover;
+            border: 2px solid #ccc;
+        }
+
+        .slot {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #000;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Position des 9 emplacements sur l'image principale */
+        .slot:nth-child(1) { top: 10%; left: 10%; }
+        .slot:nth-child(2) { top: 10%; left: 40%; }
+        .slot:nth-child(3) { top: 10%; left: 70%; }
+        .slot:nth-child(4) { top: 40%; left: 10%; }
+        .slot:nth-child(5) { top: 40%; left: 40%; }
+        .slot:nth-child(6) { top: 40%; left: 70%; }
+        .slot:nth-child(7) { top: 70%; left: 10%; }
+        .slot:nth-child(8) { top: 70%; left: 40%; }
+        .slot:nth-child(9) { top: 70%; left: 70%; }
+
+        .side-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .draggable {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+            cursor: grab;
+        }
+
+        .draggable img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image principale avec les emplacements -->
+        <div class="main-image" id="mainImage">
+            <div class="slot" data-slot="1"></div>
+            <div class="slot" data-slot="2"></div>
+            <div class="slot" data-slot="3"></div>
+            <div class="slot" data-slot="4"></div>
+            <div class="slot" data-slot="5"></div>
+            <div class="slot" data-slot="6"></div>
+            <div class="slot" data-slot="7"></div>
+            <div class="slot" data-slot="8"></div>
+            <div class="slot" data-slot="9"></div>
+        </div>
+
+        <!-- Images à déplacer -->
+        <div class="side-images">
+            <div class="draggable" draggable="true" id="car">
+                <img src="AssuranceFrance.jpg" alt="AssuranceFrance">
+            </div>
+            <div class="draggable" draggable="true" id="motorcycle">
+                <img src="AssuranceHorsUE.jpg" alt="AssuranceHorsUE">
+            </div>
+            <div class="draggable" draggable="true" id="bicycle">
+                <img src="DéchargementFrance.jpg" alt="DéchargementFrance">
+            </div>
+            <div class="draggable" draggable="true" id="skateboard">
+                <img src="Destination.jpg" alt="Destination">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const slots = document.querySelectorAll('.slot');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', draggable.id);
+            });
+        });
+
+        slots.forEach(slot => {
+            slot.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            slot.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const draggableId = e.dataTransfer.getData('text/plain');
+                const draggableElement = document.getElementById(draggableId);
+                if (!slot.hasChildNodes()) {
+                    slot.appendChild(draggableElement);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
