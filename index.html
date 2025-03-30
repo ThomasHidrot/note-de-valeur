@@ -23,8 +23,8 @@
 
         .main-image {
             position: relative;
-            width: 45vw;
-            height: 80vh;
+            width: 55vw;
+            height: 95vh;
             background: url('images/NoteDeValeur.jpg') no-repeat center center;
             background-size: cover;
             border: 2px solid #ccc;
@@ -43,16 +43,16 @@
         .slot:nth-child(2) { top: 10%; left: 40%; }
         .slot:nth-child(3) { top: 10%; left: 70%; }
         .slot:nth-child(4) { top: 40%; left: 10%; }
-        .slot:nth-child(5) { top: 40%; left: 40%; }
-        .slot:nth-child(6) { top: 40%; left: 70%; }
-        .slot:nth-child(7) { top: 70%; left: 10%; }
-        .slot:nth-child(8) { top: 70%; left: 40%; }
-        .slot:nth-child(9) { top: 70%; left: 70%; }
+        .slot:nth-child(5) { top: 80%; left: 0%; }
+        .slot:nth-child(6) { top: 80%; left: 15%; }
+        .slot:nth-child(7) { top: 80%; left: 30%; }
+        .slot:nth-child(8) { top: 80%; left: 45%; }
+        .slot:nth-child(9) { top: 80%; left: 60%; }
 
         .side-images {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px; /* Space between items */
         }
 
         .draggable {
@@ -86,17 +86,47 @@
 
         <!-- Images à déplacer -->
         <div class="side-images">
-            <div class="draggable" draggable="true" id="car">
+            <div class="draggable" draggable="true" id="AssuranceFrance">
                 <img src="images/AssuranceFrance.jpg" alt="AssuranceFrance">
             </div>
-            <div class="draggable" draggable="true" id="motorcycle">
+            <div class="draggable" draggable="true" id="AssuranceHorsUE">
                 <img src="images/AssuranceHorsUE.jpg" alt="AssuranceHorsUE">
             </div>
-            <div class="draggable" draggable="true" id="bicycle">
+            <div class="draggable" draggable="true" id="AssuranceUE">
+                <img src="images/AssuranceUE.jpg" alt="AssuranceUE">
+            </div>
+            <div class="draggable" draggable="true" id="DéchargementFrance">
                 <img src="images/DéchargementFrance.jpg" alt="DéchargementFrance">
             </div>
-            <div class="draggable" draggable="true" id="skateboard">
+            <div class="draggable" draggable="true" id="Destination">
                 <img src="images/Destination.jpg" alt="Destination">
+            </div>
+            <div class="draggable" draggable="true" id="FrontiereFR">
+                <img src="images/FrontiereFR.jpg" alt="FrontiereFR">
+            </div>
+            <div class="draggable" draggable="true" id="FrontiereUE">
+                <img src="images/FrontiereUE.jpg" alt="FrontiereUE">
+            </div>
+            <div class="draggable" draggable="true" id="MiseAQuaiAeroportMunich">
+                <img src="images/MiseAQuaiAeroportMunich.jpg" alt="MiseAQuaiAeroportMunich">
+            </div>
+            <div class="draggable" draggable="true" id="TransportFrance">
+                <img src="images/TransportFrance.jpg" alt="TransportFrance">
+            </div>
+            <div class="draggable" draggable="true" id="TransportUE">
+                <img src="images/TransportUE.jpg" alt="TransportUE">
+            </div>
+            <div class="draggable" draggable="true" id="TrasnportHorsUE">
+                <img src="images/TrasnportHorsUE.jpg" alt="TrasnportHorsUE">
+            </div>
+            <div class="draggable" draggable="true" id="Valeur1ereDestination">
+                <img src="images/Valeur1ereDestination.jpg" alt="Valeur1ereDestination">
+            </div>
+            <div class="draggable" draggable="true" id="ValeurEnDouane">
+                <img src="images/ValeurEnDouane.jpg" alt="ValeurEnDouane">
+            </div>
+            <div class="draggable" draggable="true" id="ValeurStatistique">
+                <img src="images/ValeurStatistique.jpg" alt="ValeurStatistique">
             </div>
         </div>
     </div>
